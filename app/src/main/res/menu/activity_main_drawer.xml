@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/social_media">
+        <menu>
+            <item android:id="@+id/instagram"
+                android:title="@string/instagram"
+                android:icon="@mipmap/ic_instagram_foreground"/>
+            <item android:id="@+id/facebook"
+                android:title="@string/facebook"
+                android:icon="@mipmap/ic_facebook_foreground"/>
+        </menu>
+    </item>
+
+    <item android:title="@string/bonus_content">
+        <menu>
+            <!--<item android:id="@+id/gymcalculator"-->
+                <!--android:title="@string/gymcalculator"-->
+                <!--android:icon="@mipmap/ic_gymcalculator_foreground"/>-->
+            <item android:id="@+id/privacy_policy"
+                android:title="@string/privacy_policy"
+                android:icon="@drawable/ic_assignment_black_24dp"/>
+            <item android:id="@+id/sponsors"
+                android:title="@string/sponsors"
+                android:icon="@drawable/ic_star_black_24dp"/>
+        </menu>
+    </item>
+
+</menu>

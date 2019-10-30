@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "918552306868",
+    "firebase_url": "https://gymwallpapers.firebaseio.com",
+    "project_id": "gymwallpapers",
+    "storage_bucket": "gymwallpapers.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918552306868:android:cf7512b6ef2d77ad",
+        "android_client_info": {
+          "package_name": "pawe322dev.gymwallpapers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918552306868-qksa0lb6bu1iqtbkv9l4pcv233p2tij9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP9ZtZN2txkqQ2rpLGTaFZ0AyO5iQoIMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "918552306868-qksa0lb6bu1iqtbkv9l4pcv233p2tij9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">GymWallpapers</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="set_as">Set wallpaper</string>
+    <string name="download">Download</string>
+    <string name="social_media">Social Media</string>
+    <string name="bonus_content">Info</string>
+    <string name="gymcalculator">GymCalculator</string>
+    <string name="sponsors">Sponsors</string>
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+    <string name="skip">Skip</string>
+    <string name="introFirstTitle">Welcome</string>
+    <string name="introFirstDesc">Thank you for purchase our app!</string>
+    <string name="introSecondTitle">Set Wallpaper</string>
+    <string name="introSecondDesc">You can set any wallpaper in this app into your homescreen by clicking Set Wallpaper button.</string>
+    <string name="introThirdTitle">Download Wallpaper</string>
+    <string name="introThirdDesc">You can download any wallpaper in this app and use however you want by clicking Download button.</string>
+</resources>
