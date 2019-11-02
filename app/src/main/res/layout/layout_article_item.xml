@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="170dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="300dp"
+    android:layout_margin="10dp"
     app:cardElevation="10dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    app:cardCornerRadius="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,22 +24,22 @@
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_centerHorizontal="true"
-            android:background="#BF333333"
+            android:layout_above="@+id/subTitleTextView"
+            android:layout_marginBottom="0dp"
+            android:background="#FFFFFF"
             android:gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="24sp" />
+            android:textColor="@android:color/black"
+            android:textSize="24sp"/>
 
         <TextView
             android:id="@+id/subTitleTextView"
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
-            android:layout_height="wrap_content"
-            android:background="#BF333333"
-            android:gravity="bottom"
-            android:textColor="@android:color/white"
-            android:textSize="24sp" />
+            android:layout_height="50dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
 
 
     </RelativeLayout>

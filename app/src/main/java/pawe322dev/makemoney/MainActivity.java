@@ -34,14 +34,14 @@ import com.squareup.picasso.Picasso;
 
 import pawe322dev.makemoney.CategoryViewHolder.ArticlesViewHolder;
 import pawe322dev.makemoney.Helper.ConnectivityHelper;
-import pawe322dev.makemoney.Model.ArticleItem;
+import pawe322dev.makemoney.Model.FullArticleItem;
 import pawe322dev.makemoney.Utils.Utils;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private RecyclerView recyclerView;
     private DatabaseReference categoryBackgroundReference;
-    private FirebaseRecyclerOptions<ArticleItem> options;
+    private FirebaseRecyclerOptions<FullArticleItem> options;
     private DrawerLayout drawer;
     private GridLayoutManager gridLayoutManager;
     private NavigationView navigationView;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ActionBarDrawerToggle toggle;
     private String gymCalculatorUrl, sponsorsUrl, instagramUrl, facebookUrl, privacyPolicyUrl;
 
-    private FirebaseRecyclerAdapter<ArticleItem, ArticlesViewHolder> adapter;
+    private FirebaseRecyclerAdapter<FullArticleItem, ArticlesViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,12 +143,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void GetFirebaseConnection() {
         categoryBackgroundReference = FirebaseDatabase.getInstance().getReference().child("Articles");
 
-        options = new FirebaseRecyclerOptions.Builder<ArticleItem>()
-                .setQuery(categoryBackgroundReference, ArticleItem.class).build();
+        options = new FirebaseRecyclerOptions.Builder<FullArticleItem>()
+                .setQuery(categoryBackgroundReference, FullArticleItem.class).build();
 
-        adapter = new FirebaseRecyclerAdapter<ArticleItem, ArticlesViewHolder>(options) {
+        adapter = new FirebaseRecyclerAdapter<FullArticleItem, ArticlesViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(final ArticlesViewHolder holder, final int position, final ArticleItem model) {
+            protected void onBindViewHolder(final ArticlesViewHolder holder, final int position, final FullArticleItem model) {
 
                 Picasso.get().load(model.getImageLink())
                         .networkPolicy(NetworkPolicy.OFFLINE)
@@ -166,12 +166,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             }
                         });
                 holder.titleTextView.setText(model.getTitle());
+                holder.subtitleTextView.setText(model.getSubtitle());
 
                 holder.imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Utils.ARTICLE_ID = adapter.getRef(position).getKey();
                         Utils.ARTICLE_SELECTED = model.getTitle();
+                        Utils.selected_article = model;
 
                         Intent i = new Intent(MainActivity.this, ListArticlesActivity.class);
                         startActivity(i);
@@ -185,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public ArticlesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
                 View v = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.layout_category_item,parent,false);
+                        .inflate(R.layout.layout_article_item,parent,false);
 
                 return new ArticlesViewHolder(v);
             }

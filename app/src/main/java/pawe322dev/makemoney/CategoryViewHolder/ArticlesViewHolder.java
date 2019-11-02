@@ -13,13 +13,12 @@ public class ArticlesViewHolder extends RecyclerView.ViewHolder {
     public ImageView imageView;
     public TextView titleTextView;
     public TextView subtitleTextView;
-    public TextView contentTextView;
 
     public ArticlesViewHolder(View itemView) {
         super(itemView);
         imageView = (ImageView)itemView.findViewById(R.id.imageView);
         titleTextView = (TextView)itemView.findViewById(R.id.titleTextView);
-
+        subtitleTextView = (TextView)itemView.findViewById(R.id.subTitleTextView);
 
     }
 }

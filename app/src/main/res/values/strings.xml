@@ -20,4 +20,5 @@
     <string title="introSecondDesc" name="introSecondDesc">You can set any wallpaper in this app into your homescreen by clicking Set Wallpaper button.</string>
     <string title="introThirdTitle" name="introThirdTitle">Download Wallpaper</string>
     <string title="introThirdDesc" name="introThirdDesc">You can download any wallpaper in this app and use however you want by clicking Download button.</string>
+    <string name="register">Register</string>
 </resources>
