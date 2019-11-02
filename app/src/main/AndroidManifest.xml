@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="pawe322dev.makemoney">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:title="android.permission.INTERNET" android:name="android.permission.INTERNET"/>
+    <uses-permission android:title="android.permission.READ_EXTERNAL_STORAGE" android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:title="android.permission.WRITE_EXTERNAL_STORAGE" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -13,17 +13,18 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_main_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="pawe322dev.makemoney.MainActivity"/>
-        <activity android:name="pawe322dev.makemoney.IntroActivity">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:title="pawe322dev.makemoney.MainActivity" android:name="pawe322dev.makemoney.MainActivity"/>
+        <activity android:title="pawe322dev.makemoney.IntroActivity" android:name="pawe322dev.makemoney.IntroActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:title="android.intent.action.MAIN" android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:title="android.intent.category.LAUNCHER" android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="pawe322dev.makemoney.ListWallpaperActivity" />
-        <activity android:name="pawe322dev.makemoney.ViewWallpaperActivity" />
+        <activity android:title="pawe322dev.makemoney.ListArticlesActivity" android:name="pawe322dev.makemoney.ListArticlesActivity"/>
+        <activity android:title="pawe322dev.makemoney.ViewArticleActivity" android:name="pawe322dev.makemoney.ViewArticleActivity"/>
     </application>
 
 </manifest>

@@ -1,15 +1,15 @@
 package pawe322dev.makemoney;
 
 import android.app.AlertDialog;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.squareup.picasso.Picasso;
 
 import java.util.UUID;
@@ -18,7 +18,7 @@ import pawe322dev.makemoney.Helper.SaveImageHelper;
 import pawe322dev.makemoney.Helper.SetImageHelper;
 import pawe322dev.makemoney.Utils.Utils;
 
-public class ViewWallpaperActivity extends AppCompatActivity {
+public class ViewArticleActivity extends AppCompatActivity {
 
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private Button fabDownload, fabWallpaper;
@@ -31,18 +31,18 @@ public class ViewWallpaperActivity extends AppCompatActivity {
 
         initialize();
 
-        Picasso.get().load(Utils.selected_wallpaper.getImageLink()).into(i1);
+        Picasso.get().load(Utils.selected_article.getImageLink()).into(i1);
 
         fabWallpaper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                AlertDialog.Builder b = new AlertDialog.Builder(ViewWallpaperActivity.this);
+                AlertDialog.Builder b = new AlertDialog.Builder(ViewArticleActivity.this);
                 b.setMessage("Setting as wallpaper..");
                 AlertDialog alertDialog = b.create();
                 alertDialog.show();
 
-                Picasso.get().load(Utils.selected_wallpaper.getImageLink()).into(new SetImageHelper(getBaseContext(),alertDialog,getApplicationContext().getContentResolver()));
+                Picasso.get().load(Utils.selected_article.getImageLink()).into(new SetImageHelper(getBaseContext(),alertDialog,getApplicationContext().getContentResolver()));
 
             }
         });
@@ -53,12 +53,12 @@ public class ViewWallpaperActivity extends AppCompatActivity {
 
                 String fileName = UUID.randomUUID().toString()+".png";
 
-                AlertDialog.Builder b = new AlertDialog.Builder(ViewWallpaperActivity.this);
+                AlertDialog.Builder b = new AlertDialog.Builder(ViewArticleActivity.this);
                 b.setMessage("Downloading..");
                 AlertDialog alertDialog = b.create();
                 alertDialog.show();
 
-                Picasso.get().load(Utils.selected_wallpaper.getImageLink()).into(new SaveImageHelper(getBaseContext(),alertDialog,getApplicationContext().getContentResolver(),fileName,"Mini Image"));
+                Picasso.get().load(Utils.selected_article.getImageLink()).into(new SaveImageHelper(getBaseContext(),alertDialog,getApplicationContext().getContentResolver(),fileName,"Mini Image"));
             }
         });
 

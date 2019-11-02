@@ -1,11 +1,11 @@
 package pawe322dev.makemoney.Utils;
 
 
-import pawe322dev.makemoney.Model.WallpaperItem;
+import pawe322dev.makemoney.Model.FullArticleItem;
 
 public class Utils {
 
-    public static String CATEGORY_SELECTED;
-    public static String CATEGORY_ID;
-    public static WallpaperItem selected_wallpaper = new WallpaperItem();
+    public static String ARTICLE_SELECTED;
+    public static String ARTICLE_ID;
+    public static FullArticleItem selected_article = new FullArticleItem();
 }

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--<color name="colorPrimary">#424242</color>-->
-    <!--<color name="colorPrimaryDark">#212121</color>-->
-    <!--<color name="colorAccent">#E0E0E0</color>-->
-    <!--<color name="colorBackground">#616161</color>-->
-    <color name="colorPrimary">#ffffff</color>
-    <color name="colorPrimaryDark">#212121</color>
-    <color name="colorAccent">#ffffff</color>
-    <color name="colorBackground">#ffffff</color>
+    <!--<color title="colorPrimary">#424242</color>-->
+    <!--<color title="colorPrimaryDark">#212121</color>-->
+    <!--<color title="colorAccent">#E0E0E0</color>-->
+    <!--<color title="colorBackground">#616161</color>-->
+    <color title="colorPrimary" name="colorPrimary">#ffffff</color>
+    <color title="colorPrimaryDark" name="colorPrimaryDark">#212121</color>
+    <color title="colorAccent" name="colorAccent">#ffffff</color>
+    <color title="colorBackground" name="colorBackground">#ffffff</color>
 
     <!-- colors for button style -->
-    <color name="gradient_start_color">#4c84ff</color>
-    <color name="gradient_end_color">#18a3fe</color>
+    <color title="gradient_start_color" name="gradient_start_color">#4c84ff</color>
+    <color title="gradient_end_color" name="gradient_end_color">#18a3fe</color>
 
     <!-- colors for tab and screen text -->
-    <color name="tab_indicator_gray">#c0c0c0</color>
-    <color name="intro_title_color">#000000</color>
-    <color name="intro_description_color">#656565</color>
+    <color title="tab_indicator_gray" name="tab_indicator_gray">#c0c0c0</color>
+    <color title="intro_title_color" name="intro_title_color">#000000</color>
+    <color title="intro_description_color" name="intro_description_color">#656565</color>
 
 </resources>

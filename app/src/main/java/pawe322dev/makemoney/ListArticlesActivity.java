@@ -1,14 +1,14 @@
 package pawe322dev.makemoney;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -19,16 +19,16 @@ import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import pawe322dev.makemoney.CategoryViewHolder.WallpaperViewHolder;
-import pawe322dev.makemoney.Model.WallpaperItem;
+import pawe322dev.makemoney.Model.FullArticleItem;
 import pawe322dev.makemoney.Utils.Utils;
 
-public class ListWallpaperActivity extends AppCompatActivity {
+public class ListArticlesActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private Query query;
 
-    private FirebaseRecyclerOptions<WallpaperItem> options;
-    private FirebaseRecyclerAdapter<WallpaperItem,WallpaperViewHolder> adapter;
+    private FirebaseRecyclerOptions<FullArticleItem> options;
+    private FirebaseRecyclerAdapter<FullArticleItem,WallpaperViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +40,15 @@ public class ListWallpaperActivity extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
-        query = FirebaseDatabase.getInstance().getReference("Background")
-                .orderByChild("categoryId").equalTo(Utils.CATEGORY_ID);
+        query = FirebaseDatabase.getInstance().getReference("Articles")
+                .orderByChild("articleId").equalTo(Utils.ARTICLE_ID);
 
-        options = new FirebaseRecyclerOptions.Builder<WallpaperItem>()
-                .setQuery(query, WallpaperItem.class).build();
+        options = new FirebaseRecyclerOptions.Builder<FullArticleItem>()
+                .setQuery(query, FullArticleItem.class).build();
 
-        adapter = new FirebaseRecyclerAdapter<WallpaperItem, WallpaperViewHolder>(options) {
+        adapter = new FirebaseRecyclerAdapter<FullArticleItem, WallpaperViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(final WallpaperViewHolder holder, final int position, final WallpaperItem model) {
+            protected void onBindViewHolder(final WallpaperViewHolder holder, final int position, final FullArticleItem model) {
 
                 Picasso.get().load(model.getImageLink())
                         .networkPolicy(NetworkPolicy.OFFLINE)
@@ -69,11 +69,11 @@ public class ListWallpaperActivity extends AppCompatActivity {
                 holder.imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Utils.CATEGORY_ID = adapter.getRef(position).getKey();
-                        Utils.CATEGORY_SELECTED = model.categoryId;
-                        Utils.selected_wallpaper = model;
+                        Utils.ARTICLE_ID = adapter.getRef(position).getKey();
+                        Utils.ARTICLE_SELECTED = model.articleId;
+                        Utils.selected_article = model;
 
-                        Intent my = new Intent(getApplicationContext(),ViewWallpaperActivity.class);
+                        Intent my = new Intent(getApplicationContext(), ViewArticleActivity.class);
                         startActivity(my);
                     }
                 });

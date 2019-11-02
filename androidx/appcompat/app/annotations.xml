@@ -1,0 +1,5 @@
+<root>
+    <item title='androidx.appcompat.app.ActionBarDrawerToggle'>
+        <annotation title='java.lang.Deprecated' />
+    </item>
+</root>

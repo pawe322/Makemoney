@@ -1,23 +1,23 @@
 <resources>
-    <string name="app_name">GymWallpapers</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="set_as">Set wallpaper</string>
-    <string name="download">Download</string>
-    <string name="social_media">Social Media</string>
-    <string name="bonus_content">Info</string>
-    <string name="gymcalculator">GymCalculator</string>
-    <string name="sponsors">Sponsors</string>
-    <string name="facebook">Facebook</string>
-    <string name="instagram">Instagram</string>
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="next">Next</string>
-    <string name="get_started">Get Started</string>
-    <string name="skip">Skip</string>
-    <string name="introFirstTitle">Welcome</string>
-    <string name="introFirstDesc">Thank you for purchase our app!</string>
-    <string name="introSecondTitle">Set Wallpaper</string>
-    <string name="introSecondDesc">You can set any wallpaper in this app into your homescreen by clicking Set Wallpaper button.</string>
-    <string name="introThirdTitle">Download Wallpaper</string>
-    <string name="introThirdDesc">You can download any wallpaper in this app and use however you want by clicking Download button.</string>
+    <string title="app_name" name="app_name">Extra Money Ideas</string>
+    <string title="navigation_drawer_open" name="navigation_drawer_open">Open navigation drawer</string>
+    <string title="navigation_drawer_close" name="navigation_drawer_close">Close navigation drawer</string>
+    <string title="set_as" name="set_as">Set wallpaper</string>
+    <string title="download" name="download">Download</string>
+    <string title="social_media" name="social_media">Social Media</string>
+    <string title="bonus_content" name="bonus_content">Info</string>
+    <string title="gymcalculator" name="gymcalculator">GymCalculator</string>
+    <string title="sponsors" name="sponsors">Sponsors</string>
+    <string title="facebook" name="facebook">Facebook</string>
+    <string title="instagram" name="instagram">Instagram</string>
+    <string title="privacy_policy" name="privacy_policy">Privacy Policy</string>
+    <string title="next" name="next">Next</string>
+    <string title="get_started" name="get_started">Get Started</string>
+    <string title="skip" name="skip">Skip</string>
+    <string title="introFirstTitle" name="introFirstTitle">Welcome</string>
+    <string title="introFirstDesc" name="introFirstDesc">Thank you for purchase our app!</string>
+    <string title="introSecondTitle" name="introSecondTitle">Set Wallpaper</string>
+    <string title="introSecondDesc" name="introSecondDesc">You can set any wallpaper in this app into your homescreen by clicking Set Wallpaper button.</string>
+    <string title="introThirdTitle" name="introThirdTitle">Download Wallpaper</string>
+    <string title="introThirdDesc" name="introThirdDesc">You can download any wallpaper in this app and use however you want by clicking Download button.</string>
 </resources>

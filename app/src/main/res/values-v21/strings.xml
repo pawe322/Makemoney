@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="set_as">Set wallpaper</string>
-    <string name="download">Download</string>
-    <string name="social_media">Social Media</string>
-    <string name="gymcalculator">GymCalculator</string>
-    <string name="sponsors">Sponsors</string>
-    <string name="facebook">Facebook</string>
-    <string name="instagram">Instagram</string>
+    <string title="set_as" name="set_as">Set wallpaper</string>
+    <string title="download" name="download">Download</string>
+    <string title="social_media" name="social_media">Social Media</string>
+    <string title="gymcalculator" name="gymcalculator">GymCalculator</string>
+    <string title="sponsors" name="sponsors">Sponsors</string>
+    <string title="facebook" name="facebook">Facebook</string>
+    <string title="instagram" name="instagram">Instagram</string>
+    <string title="app_name" name="app_name">Extra Money Ideas</string>
 </resources>

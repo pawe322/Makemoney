@@ -1,8 +1,9 @@
 package pawe322dev.makemoney.CategoryViewHolder;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import pawe322dev.makemoney.R;
 
