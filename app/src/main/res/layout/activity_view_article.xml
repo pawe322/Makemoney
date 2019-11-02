@@ -57,7 +57,7 @@
                     android:textSize="18sp" />
 
                 <Button
-                    android:id="@+id/fab_download"
+                    android:id="@+id/registerButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/contentTextView"

@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Uri uriUrl = Uri.parse(url);
             Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
             startActivity(launchBrowser);
-        };
+        }
     }
 
     private void GetFirebaseConnection() {

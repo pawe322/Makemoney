@@ -19,6 +19,5 @@ public class ArticlesViewHolder extends RecyclerView.ViewHolder {
         imageView = (ImageView)itemView.findViewById(R.id.imageView);
         titleTextView = (TextView)itemView.findViewById(R.id.titleTextView);
         subtitleTextView = (TextView)itemView.findViewById(R.id.subTitleTextView);
-
     }
 }
