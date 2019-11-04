@@ -165,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                         .into(holder.imageView);
                             }
                         });
+                holder.idTextView.setText("#" + model.getArticleId());
                 holder.titleTextView.setText(model.getTitle());
                 holder.subtitleTextView.setText(model.getSubtitle());
 

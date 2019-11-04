@@ -5,7 +5,7 @@
     <!--<color title="colorAccent">#E0E0E0</color>-->
     <!--<color title="colorBackground">#616161</color>-->
     <color title="colorPrimary" name="colorPrimary">#ffffff</color>
-    <color title="colorPrimaryDark" name="colorPrimaryDark">#212121</color>
+    <color title="colorPrimaryDark" name="colorPrimaryDark">#4c84ff</color>
     <color title="colorAccent" name="colorAccent">#ffffff</color>
     <color title="colorBackground" name="colorBackground">#ffffff</color>
 

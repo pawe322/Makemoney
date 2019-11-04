@@ -41,7 +41,7 @@ public class FullArticleItem {
     }
 
     public String getArticleId() {
-        return content;
+        return articleId;
     }
 
     public String getSubtitle() {
