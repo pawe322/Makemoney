@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,14 @@ import pawe322dev.makemoney.Helper.ConnectivityHelper;
 import pawe322dev.makemoney.Model.FullArticleItem;
 import pawe322dev.makemoney.Utils.Utils;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private RecyclerView recyclerView;
@@ -47,7 +56,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
-    private String gymCalculatorUrl, sponsorsUrl, instagramUrl, facebookUrl, privacyPolicyUrl;
+    private String gymCalculatorUrl, sponsorsUrl, instagramUrl, facebookUrl, privacyPolicyUrl, FirebaseUnitID;
+    private AdView mAdView;
 
     private FirebaseRecyclerAdapter<FullArticleItem, ArticlesViewHolder> adapter;
 
@@ -56,6 +66,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+//        GetFirebaseAdmobData();
         GetFirebaseConnection();
         InitializeView();
         GetFirebaseUrls();
@@ -130,6 +147,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
+    }
+
+    private void GetFirebaseAdmobData(){
+        Firebase.setAndroidContext(this);
+        Firebase adMobFirebase = new Firebase("https://extra-money-ideas.firebaseio.com/admob");
+        adMobFirebase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                FirebaseUnitID = dataSnapshot.getValue(String.class);
+                LoadAdMobAd(FirebaseUnitID);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+    }
+
+    private void LoadAdMobAd(String unitId){
+        View adContainer = findViewById(R.id.adMobView);
+        mAdView = new AdView(this);
+        mAdView.setAdSize(AdSize.BANNER);
+        mAdView.setAdUnitId(unitId);
+        ((RelativeLayout)adContainer).addView(mAdView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     private void goToUrl (String url) {
@@ -246,18 +290,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if(ConnectivityHelper.isConnectedToNetwork(getApplicationContext())) {
-            if (id == R.id.instagram) {
-                    goToUrl(instagramUrl);
-            } else if (id == R.id.facebook) {
-                    goToUrl(facebookUrl);
+//            if (id == R.id.instagram) {
+//                    goToUrl(instagramUrl);
+//            } else if (id == R.id.facebook) {
+//                    goToUrl(facebookUrl);
     //        } else if (id == R.id.gymcalculator) {
     //            if(ConnectivityHelper.isConnectedToNetwork(getApplicationContext())) {
     //                goToUrl(gymCalculatorUrl);
-            } else if (id == R.id.privacy_policy) {
+//            } else
+            if (id == R.id.privacy_policy) {
                     goToUrl("https://sites.google.com/view/extramoneyideasprivacypolicy");
-            } else if (id == R.id.sponsors) {
-                    goToUrl(sponsorsUrl);
             }
+//            else if (id == R.id.sponsors) {
+//                    goToUrl(sponsorsUrl);
+//            }
         } else {
             Snackbar snackbar = Snackbar.make(recyclerView,"No internet connection.", Snackbar.LENGTH_SHORT);
             snackbar.show();

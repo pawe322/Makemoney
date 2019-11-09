@@ -25,6 +25,9 @@
         </activity>
         <activity android:title="pawe322dev.makemoney.ListArticlesActivity" android:name="pawe322dev.makemoney.ListArticlesActivity"/>
         <activity android:title="pawe322dev.makemoney.ViewArticleActivity" android:name="pawe322dev.makemoney.ViewArticleActivity"/>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9967845448401052~2266536072"/>
     </application>
 
 </manifest>

@@ -49,7 +49,7 @@
     <Button
         android:visibility="invisible"
         android:textColor="#fff"
-        android:background="@drawable/btn_gradient_style"
+        android:background="@drawable/btn_gradient_intro"
         android:id="@+id/btn_get_started"
         android:layout_width="132dp"
         android:layout_height="wrap_content"
