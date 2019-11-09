@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
 
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
-    private String gymCalculatorUrl, sponsorsUrl, instagramUrl, facebookUrl, privacyPolicyUrl, FirebaseUnitID;
+    private String gymCalculatorUrl, sponsorsUrl, instagramUrl, facebookUrl, privacyPolicyUrl, FirebaseUnitID, rateAppUrl;
     private AdView mAdView;
 
     private FirebaseRecyclerAdapter<FullArticleItem, ArticlesViewHolder> adapter;
@@ -64,6 +66,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set fullscreen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_main);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -83,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         GetFirebaseFacebookUrl();
         GetFirebaseGymCalculatorUrl();
         GetFirebaseSponsorsUrl();
+        GetFirebaseRateAppUrl();
     }
 
     private void GetFirebaseInstagramUrl() {
@@ -140,6 +149,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 sponsorsUrl = dataSnapshot.getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+    }
+
+    private void GetFirebaseRateAppUrl() {
+        Firebase.setAndroidContext(this);
+        Firebase firebaseConnection = new Firebase("https://extra-money-ideas.firebaseio.com/rate_app");
+        firebaseConnection.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                rateAppUrl = dataSnapshot.getValue(String.class);
             }
 
             @Override
@@ -301,9 +326,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if (id == R.id.privacy_policy) {
                     goToUrl("https://sites.google.com/view/extramoneyideasprivacypolicy");
             }
-//            else if (id == R.id.sponsors) {
-//                    goToUrl(sponsorsUrl);
-//            }
+            else if (id == R.id.rate_app) {
+                    goToUrl(rateAppUrl);
+            }
         } else {
             Snackbar snackbar = Snackbar.make(recyclerView,"No internet connection.", Snackbar.LENGTH_SHORT);
             snackbar.show();

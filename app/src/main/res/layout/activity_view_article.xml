@@ -72,13 +72,22 @@
                     android:background="@drawable/btn_gradient_register"
                     android:textColor="@android:color/white"
                     android:text="@string/register"
-                    android:textSize="20dp"
-                    />
+                    android:textSize="20sp"/>
 
         </RelativeLayout>
+
+
 
         </RelativeLayout>
 
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back_white_24dp"
+        android:background="@drawable/btn_back"
+        android:layout_margin="15dp"/>
 
 </RelativeLayout>
