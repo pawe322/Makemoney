@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
-    private String gymCalculatorUrl, sponsorsUrl, instagramUrl, facebookUrl, privacyPolicyUrl, FirebaseUnitID, rateAppUrl;
+    private String sponsorsUrl, instagramUrl, facebookUrl, privacyPolicyUrl, FirebaseUnitID, rateAppUrl;
     private AdView mAdView;
 
     private FirebaseRecyclerAdapter<FullArticleItem, ArticlesViewHolder> adapter;
@@ -83,14 +83,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        GetFirebaseAdmobData();
         GetFirebaseConnection();
         InitializeView();
+        AddListenersToViewElements();
         GetFirebaseUrls();
     }
 
     private void GetFirebaseUrls() {
         GetFirebaseInstagramUrl();
         GetFirebaseFacebookUrl();
-        GetFirebaseGymCalculatorUrl();
-        GetFirebaseSponsorsUrl();
         GetFirebaseRateAppUrl();
     }
 
@@ -117,38 +116,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 facebookUrl = dataSnapshot.getValue(String.class);
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
-    }
-
-    private void GetFirebaseGymCalculatorUrl() {
-        Firebase.setAndroidContext(this);
-        Firebase firebaseConnection = new Firebase("https://extra-money-ideas.firebaseio.com/gymcalculator");
-        firebaseConnection.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                gymCalculatorUrl = dataSnapshot.getValue(String.class);
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
-    }
-
-    private void GetFirebaseSponsorsUrl() {
-        Firebase.setAndroidContext(this);
-        Firebase firebaseConnection = new Firebase("https://extra-money-ideas.firebaseio.com/sponsors");
-        firebaseConnection.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                sponsorsUrl = dataSnapshot.getValue(String.class);
             }
 
             @Override
@@ -201,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mAdView.loadAd(adRequest);
     }
 
-    private void goToUrl (String url) {
+    private void goToUrl(String url) {
         if (url != null) {
             Uri uriUrl = Uri.parse(url);
             Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
@@ -219,21 +186,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             protected void onBindViewHolder(final ArticlesViewHolder holder, final int position, final FullArticleItem model) {
 
-                Picasso.get().load(model.getImageLink())
-                        .networkPolicy(NetworkPolicy.OFFLINE)
-                        .into(holder.imageView, new Callback() {
-                            @Override
-                            public void onSuccess() {
+                if (model.getImageLink() != null && !model.getImageLink().equals("")) {
+                    Picasso.get().load(model.getImageLink())
+                            .networkPolicy(NetworkPolicy.OFFLINE)
+                            .into(holder.imageView, new Callback() {
+                                @Override
+                                public void onSuccess() {
 
-                            }
+                                }
 
-                            @Override
-                            public void onError(Exception e) {
-                                Picasso.get().load(model.getImageLink())
-                                        .error(R.drawable.ic_terrain_black_24dp)
-                                        .into(holder.imageView);
-                            }
-                        });
+                                @Override
+                                public void onError(Exception e) {
+                                    Picasso.get().load(model.getImageLink())
+                                            .error(R.drawable.ic_terrain_black_24dp)
+                                            .into(holder.imageView);
+                                }
+                            });
+                }
                 holder.idTextView.setText("#" + model.getArticleId());
                 holder.titleTextView.setText(model.getTitle());
                 holder.subtitleTextView.setText(model.getSubtitle());
@@ -270,8 +239,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar_main);
         drawer = findViewById(R.id.drawer_layout);
-
-        AddListenersToViewElements();
     }
 
     private void AddListenersToViewElements() {
@@ -311,7 +278,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onNavigationItemSelected( MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if(ConnectivityHelper.isConnectedToNetwork(getApplicationContext())) {

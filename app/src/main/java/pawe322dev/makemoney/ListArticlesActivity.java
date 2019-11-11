@@ -33,8 +33,9 @@ public class ListArticlesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_article);
 
         initialize();
-
-        Picasso.get().load(Utils.selected_article.getImageLink()).into(titleImage);
+        if (Utils.selected_article.getImageLink() != null && !Utils.selected_article.getImageLink().equals("")) {
+            Picasso.get().load(Utils.selected_article.getImageLink()).into(titleImage);
+        }
         titleTextView.setText(Utils.selected_article.getTitle());
         contentTextView.setText(Utils.selected_article.getContent());
 
