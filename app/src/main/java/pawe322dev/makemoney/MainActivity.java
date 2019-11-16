@@ -203,7 +203,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                             .into(holder.imageView);
                                 }
                             });
+                } else {
+                    holder.itemView.setVisibility(View.GONE);
+                    holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
                 }
+
                 holder.idTextView.setText("#" + model.getArticleId());
                 holder.titleTextView.setText(model.getTitle());
                 holder.subtitleTextView.setText(model.getSubtitle());
@@ -220,6 +224,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     }
                 });
+
+                holder.titleTextView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Utils.ARTICLE_ID = adapter.getRef(position).getKey();
+                        Utils.ARTICLE_SELECTED = model.getTitle();
+                        Utils.selected_article = model;
+
+                        Intent i = new Intent(MainActivity.this, ListArticlesActivity.class);
+                        startActivity(i);
+
+                    }
+                });
+
+                holder.subtitleTextView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Utils.ARTICLE_ID = adapter.getRef(position).getKey();
+                        Utils.ARTICLE_SELECTED = model.getTitle();
+                        Utils.selected_article = model;
+
+                        Intent i = new Intent(MainActivity.this, ListArticlesActivity.class);
+                        startActivity(i);
+
+                    }
+                });
+
             }
 
             @NonNull
