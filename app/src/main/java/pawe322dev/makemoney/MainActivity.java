@@ -178,6 +178,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void GetFirebaseConnection() {
         categoryBackgroundReference = FirebaseDatabase.getInstance().getReference().child("Articles");
+        categoryBackgroundReference.keepSynced(true);
 
         options = new FirebaseRecyclerOptions.Builder<FullArticleItem>()
                 .setQuery(categoryBackgroundReference, FullArticleItem.class).build();

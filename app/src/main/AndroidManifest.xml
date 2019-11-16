@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="pawe322dev.makemoney.OfflineCapabilities"/>
         <activity android:title="pawe322dev.makemoney.MainActivity" android:name="pawe322dev.makemoney.MainActivity"/>
         <activity android:title="pawe322dev.makemoney.IntroActivity" android:name="pawe322dev.makemoney.IntroActivity">
             <intent-filter>
