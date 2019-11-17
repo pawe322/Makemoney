@@ -14,12 +14,14 @@
     <string title="next" name="next">Next</string>
     <string title="get_started" name="get_started">Get Started</string>
     <string title="skip" name="skip">Skip</string>
-    <string title="introFirstTitle" name="introFirstTitle">Welcome</string>
-    <string title="introFirstDesc" name="introFirstDesc">Thank you for purchase our app!</string>
-    <string title="introSecondTitle" name="introSecondTitle">Set Wallpaper</string>
-    <string title="introSecondDesc" name="introSecondDesc">You can set any wallpaper in this app into your homescreen by clicking Set Wallpaper button.</string>
-    <string title="introThirdTitle" name="introThirdTitle">Download Wallpaper</string>
-    <string title="introThirdDesc" name="introThirdDesc">You can download any wallpaper in this app and use however you want by clicking Download button.</string>
+    <string title="introFirstTitle" name="introFirstTitle">Hey you!</string>
+    <string title="introFirstDesc" name="introFirstDesc">Check out this quick tutorial on how to use this app.</string>
+    <string title="introSecondTitle" name="introSecondTitle">Browse articles</string>
+    <string title="introSecondDesc" name="introSecondDesc">Choose an article that you find interesting</string>
+    <string title="introThirdTitle" name="introThirdTitle">Check it</string>
+    <string title="introThirdDesc" name="introThirdDesc">Learn how to make money this way. Press REGISTER and start earning extra money.</string>
+    <string title="introThirdTitle" name="introFourthTitle">But Wait!</string>
+    <string title="introThirdDesc" name="introFourthDesc">Before you start, you need to know that to earn money on these sites, you need two things. Patience and regularity. Money doesn\'t like rushing. Good luck!</string>
     <string name="register">Register</string>
     <string name="rate_app">Rate our app!</string>
 </resources>

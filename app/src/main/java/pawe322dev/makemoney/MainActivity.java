@@ -80,10 +80,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-//        GetFirebaseAdmobData();
         GetFirebaseConnection();
         InitializeView();
         AddListenersToViewElements();
+//        LoadAdMobAd("ca-app-pub-3940256099942544/6300978111");
         GetFirebaseUrls();
     }
 
@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         GetFirebaseInstagramUrl();
         GetFirebaseFacebookUrl();
         GetFirebaseRateAppUrl();
+//        GetFirebaseAdmobData();
     }
 
     private void GetFirebaseInstagramUrl() {
@@ -161,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void LoadAdMobAd(String unitId){
         View adContainer = findViewById(R.id.adMobView);
         mAdView = new AdView(this);
-        mAdView.setAdSize(AdSize.BANNER);
+        mAdView.setAdSize(AdSize.SMART_BANNER);
         mAdView.setAdUnitId(unitId);
         ((RelativeLayout)adContainer).addView(mAdView);
         AdRequest adRequest = new AdRequest.Builder().build();

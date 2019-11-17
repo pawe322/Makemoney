@@ -65,9 +65,10 @@ public class IntroActivity extends AppCompatActivity {
     private void AddListenersToViewElements() {
         // fill list screen
         mList = new ArrayList<>();
-        mList.add(new ScreenItem(R.string.introFirstTitle,R.string.introFirstDesc,R.drawable.img1));
-        mList.add(new ScreenItem(R.string.introSecondTitle,R.string.introSecondDesc,R.drawable.img2));
-        mList.add(new ScreenItem(R.string.introThirdTitle,R.string.introThirdDesc,R.drawable.img3));
+        mList.add(new ScreenItem(R.string.introFirstTitle,R.string.introFirstDesc,R.mipmap.ic_launcher_round));
+        mList.add(new ScreenItem(R.string.introSecondTitle,R.string.introSecondDesc,R.drawable.first));
+        mList.add(new ScreenItem(R.string.introThirdTitle,R.string.introThirdDesc,R.drawable.second));
+        mList.add(new ScreenItem(R.string.introFourthTitle,R.string.introFourthDesc,R.drawable.third));
 
         // setup viewpager
         screenPager = findViewById(R.id.screen_viewpager);
