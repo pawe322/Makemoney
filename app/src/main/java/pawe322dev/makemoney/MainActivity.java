@@ -68,9 +68,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
 
         // Set fullscreen
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
 
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         GetFirebaseInstagramUrl();
         GetFirebaseFacebookUrl();
         GetFirebaseRateAppUrl();
-//        GetFirebaseAdmobData();
+        GetFirebaseAdmobData();
     }
 
     private void GetFirebaseInstagramUrl() {

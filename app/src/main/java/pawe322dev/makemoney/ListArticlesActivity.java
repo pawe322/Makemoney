@@ -26,9 +26,9 @@ public class ListArticlesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Set fullscreen
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_view_article);
 
@@ -38,6 +38,11 @@ public class ListArticlesActivity extends AppCompatActivity {
         }
         titleTextView.setText(Utils.selected_article.getTitle());
         contentTextView.setText(Utils.selected_article.getContent());
+        if(Utils.selected_article.getButtonName() != null && !Utils.selected_article.getRegisterLink().equals("")) {
+            registerButton.setText(Utils.selected_article.getButtonName());
+        } else {
+            registerButton.setText(R.string.register);
+        }
 
         if (Utils.selected_article.getRegisterLink() != null && !Utils.selected_article.getRegisterLink().equals("")) {
             registerButton.setOnClickListener(new View.OnClickListener() {

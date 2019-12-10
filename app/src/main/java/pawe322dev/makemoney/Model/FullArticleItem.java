@@ -2,15 +2,16 @@ package pawe322dev.makemoney.Model;
 
 public class FullArticleItem {
 
-    public String imageLink, title, content, articleId, subtitle, registerLink;
+    public String imageLink, title, content, articleId, subtitle, registerLink, buttonName;
 
-    public FullArticleItem(String imageLink, String title, String content, String articleId, String subtitle, String registerLink) {
+    public FullArticleItem(String imageLink, String title, String content, String articleId, String subtitle, String registerLink, String buttonName) {
         this.imageLink = imageLink;
         this.title = title;
         this.content = content;
         this.articleId = articleId;
         this.subtitle = subtitle;
         this.registerLink = registerLink;
+        this.buttonName = buttonName;
     }
 
     public FullArticleItem() {
@@ -60,4 +61,11 @@ public class FullArticleItem {
         this.registerLink = registerLink;
     }
 
+    public String getButtonName() {
+        return buttonName;
+    }
+
+    public void setButtonName(String buttonName) {
+        this.buttonName = buttonName;
+    }
 }
