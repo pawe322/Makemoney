@@ -40,13 +40,6 @@ import pawe322dev.makemoney.Helper.ConnectivityHelper;
 import pawe322dev.makemoney.Model.FullArticleItem;
 import pawe322dev.makemoney.Utils.Utils;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -59,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
     private String sponsorsUrl, instagramUrl, facebookUrl, privacyPolicyUrl, FirebaseUnitID, rateAppUrl;
-    private AdView mAdView;
+//    private AdView mAdView;
 
     private FirebaseRecyclerAdapter<FullArticleItem, ArticlesViewHolder> adapter;
 
@@ -74,11 +67,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setContentView(R.layout.activity_main);
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
+//        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+//            @Override
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
+//            }
+//        });
 
         GetFirebaseConnection();
         InitializeView();
@@ -91,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         GetFirebaseInstagramUrl();
         GetFirebaseFacebookUrl();
         GetFirebaseRateAppUrl();
-        GetFirebaseAdmobData();
+//        GetFirebaseAdmobData();
     }
 
     private void GetFirebaseInstagramUrl() {
@@ -142,32 +135,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
-    private void GetFirebaseAdmobData(){
-        Firebase.setAndroidContext(this);
-        Firebase adMobFirebase = new Firebase("https://extra-money-ideas.firebaseio.com/admob");
-        adMobFirebase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                FirebaseUnitID = dataSnapshot.getValue(String.class);
-                LoadAdMobAd(FirebaseUnitID);
-            }
+//    private void GetFirebaseAdmobData(){
+//        Firebase.setAndroidContext(this);
+//        Firebase adMobFirebase = new Firebase("https://extra-money-ideas.firebaseio.com/admob");
+//        adMobFirebase.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                FirebaseUnitID = dataSnapshot.getValue(String.class);
+//                LoadAdMobAd(FirebaseUnitID);
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//
+//            }
+//        });
+//    }
 
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
-    }
-
-    private void LoadAdMobAd(String unitId){
-        View adContainer = findViewById(R.id.adMobView);
-        mAdView = new AdView(this);
-        mAdView.setAdSize(AdSize.SMART_BANNER);
-        mAdView.setAdUnitId(unitId);
-        ((RelativeLayout)adContainer).addView(mAdView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-    }
+//    private void LoadAdMobAd(String unitId){
+//        View adContainer = findViewById(R.id.adMobView);
+//        mAdView = new AdView(this);
+//        mAdView.setAdSize(AdSize.SMART_BANNER);
+//        mAdView.setAdUnitId(unitId);
+//        ((RelativeLayout)adContainer).addView(mAdView);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
+//    }
 
     private void goToUrl(String url) {
         if (url != null) {
@@ -325,8 +318,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            } else
             if (id == R.id.privacy_policy) {
                     goToUrl("https://sites.google.com/view/extramoneyideasprivacypolicy");
-            }
-            else if (id == R.id.rate_app) {
+            } else if (id == R.id.rate_app) {
                     goToUrl(rateAppUrl);
             }
         } else {
